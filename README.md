@@ -49,8 +49,8 @@ src/
 1. Clonar el repositorio
 
 ```
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/Ales0609/AdminBot-2.0
+cd tu-carpeta
 ```
 
 2. Instalar dependencias
@@ -64,7 +64,7 @@ npm install
 ```
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=tu_password
+DB_PASSWORD=200609
 DB_NAME=colegio
 PORT=3000
 ```
