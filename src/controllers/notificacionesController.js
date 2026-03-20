@@ -1,6 +1,6 @@
 import { db } from "../config/db.js"
 
-// GET - obtener notificaciones
+// Get obtener notificaciones
 export const getNotificaciones = async (req, res) => {
     try {
 
@@ -27,7 +27,7 @@ export const getNotificaciones = async (req, res) => {
 }
 
 
-// POST - crear notificación
+// Post crear notificación
 export const createNotificacion = async (req, res) => {
     try {
 
@@ -39,7 +39,7 @@ export const createNotificacion = async (req, res) => {
             mensaje
         } = req.body
 
-        // 🔍 Validar estudiante
+        // Validar estudiante
         const [estudiante] = await db.execute(
             "SELECT id FROM estudiantes WHERE id = ?",
             [estudiante_id]
@@ -51,7 +51,7 @@ export const createNotificacion = async (req, res) => {
             })
         }
 
-        // 🔍 Validar acudiente
+        // Validar acudiente
         const [acudiente] = await db.execute(
             "SELECT id FROM acudientes WHERE id = ?",
             [acudiente_id]
@@ -63,7 +63,7 @@ export const createNotificacion = async (req, res) => {
             })
         }
 
-        // 🔍 Validar cuenta (opcional)
+        // Validar cuenta_por_cobrar_id
         if (cuenta_por_cobrar_id) {
             const [cuenta] = await db.execute(
                 "SELECT id FROM cuentas_por_cobrar WHERE id = ?",
@@ -77,7 +77,6 @@ export const createNotificacion = async (req, res) => {
             }
         }
 
-        // ✅ Insert
         await db.execute(
             `INSERT INTO notificaciones_whatsapp
             (id, estudiante_id, acudiente_id, cuenta_por_cobrar_id, telefono_destino, mensaje, estado_envio, created_at)

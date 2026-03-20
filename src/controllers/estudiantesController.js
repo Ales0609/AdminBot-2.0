@@ -1,5 +1,4 @@
 import { db } from "../config/db.js"
-import { randomUUID } from 'crypto';
 
 export const getEstudiantes = async (req, res) => {
     try {

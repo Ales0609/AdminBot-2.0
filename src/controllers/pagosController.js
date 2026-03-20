@@ -1,6 +1,6 @@
 import { db } from "../config/db.js"
 
-// GET - obtener pagos
+// Get obtener pagos
 export const getPagos = async (req, res) => {
     try {
 
@@ -27,7 +27,7 @@ export const getPagos = async (req, res) => {
 }
 
 
-// POST - crear pago
+// Post crear pago
 export const createPago = async (req, res) => {
     try {
 

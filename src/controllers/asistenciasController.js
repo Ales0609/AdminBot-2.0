@@ -1,6 +1,6 @@
 import { db } from "../config/db.js"
 
-// GET - obtener asistencias
+// Get obtener asistencias
 export const getAsistencias = async (req, res) => {
     try {
 
@@ -27,7 +27,7 @@ export const getAsistencias = async (req, res) => {
 }
 
 
-// POST - registrar asistencia
+// Post registrar asistencia
 export const createAsistencia = async (req, res) => {
     try {
 
@@ -41,7 +41,7 @@ export const createAsistencia = async (req, res) => {
             registrado_por_id
         } = req.body
 
-        // 🔍 Validar estudiante
+        // Validar estudiante
         const [estudiante] = await db.execute(
             "SELECT id FROM estudiantes WHERE id = ?",
             [estudiante_id]
@@ -53,7 +53,7 @@ export const createAsistencia = async (req, res) => {
             })
         }
 
-        // 🔍 Validar usuario
+        // Validar usuario
         const [usuario] = await db.execute(
             "SELECT id FROM usuarios WHERE id = ?",
             [registrado_por_id]
@@ -65,7 +65,7 @@ export const createAsistencia = async (req, res) => {
             })
         }
 
-        // 🔍 Validar duplicado (por UNIQUE)
+        // Validar duplicado
         const [existe] = await db.execute(
             "SELECT id FROM asistencias WHERE estudiante_id = ? AND fecha = ?",
             [estudiante_id, fecha]
@@ -77,7 +77,6 @@ export const createAsistencia = async (req, res) => {
             })
         }
 
-        // ✅ Insert
         await db.execute(
             `INSERT INTO asistencias
             (id, estudiante_id, fecha, estado, hora_ingreso, hora_salida, observacion, registrado_por_id, created_at)
