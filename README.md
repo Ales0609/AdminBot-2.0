@@ -50,7 +50,7 @@ src/
 
 ```
 git clone https://github.com/Ales0609/AdminBot-2.0
-cd tu-carpeta
+cd AdminBot-2.0
 ```
 
 2. Instalar dependencias
