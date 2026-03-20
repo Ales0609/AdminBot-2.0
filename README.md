@@ -64,7 +64,7 @@ npm install
 ```
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=200609
+DB_PASSWORD=tu_password
 DB_NAME=colegio
 PORT=3000
 ```
